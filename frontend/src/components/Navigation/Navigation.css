@@ -1,0 +1,16 @@
+.navbar {
+    padding-left: 10%;
+}
+
+#name {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#categories {
+    padding-left: 30px;
+}
+#text {
+    padding-left: 60px;
+    color: white;
+}
