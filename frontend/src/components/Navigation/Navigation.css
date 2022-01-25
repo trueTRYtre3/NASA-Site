@@ -1,5 +1,10 @@
 .navbar {
     padding-left: 10%;
+    margin-bottom: 20px;
+}
+
+img {
+    margin-right: 5px;
 }
 
 #name {
@@ -8,7 +13,7 @@
 }
 
 #categories {
-    padding-left: 30px;
+    padding-left: 20px;
 }
 #text {
     padding-left: 60px;
