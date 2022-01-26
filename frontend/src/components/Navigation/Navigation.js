@@ -6,7 +6,7 @@ import './Navigation.css';
 const Navigation = () => {
     
     return(
-        <Navbar variant="dark" className="navbar">
+        <Navbar collapseOnSelect expand='md' variant="dark" className="navbar">
             <Container>
                 <Navbar.Brand href="#home" id='name'>
                     <img
@@ -18,11 +18,15 @@ const Navigation = () => {
                     />
                     Cosmos
                 </Navbar.Brand>
-                <Nav className="me-auto" id='categories'>
-                    <Nav.Link href="#home" id='text'>Space</Nav.Link>
-                    <Nav.Link href="#features" id='text'>Earth</Nav.Link>
-                    <Nav.Link href="#pricing" id='text'>Mars</Nav.Link>
-                </Nav>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav  className="me-auto"></Nav>
+                    <Nav id='categories'>
+                        <Nav.Link href="#home" id='text'>Space</Nav.Link>
+                        <Nav.Link href="#features" id='text'>Earth</Nav.Link>
+                        <Nav.Link href="#pricing" id='text'>Mars</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     )

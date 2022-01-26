@@ -1,6 +1,7 @@
 .navbar {
     padding-left: 10%;
     margin-bottom: 20px;
+    padding-top: 12px;
 }
 
 img {
@@ -13,9 +14,13 @@ img {
 }
 
 #categories {
-    padding-left: 20px;
+    padding-right: 10%;
 }
 #text {
     padding-left: 60px;
     color: white;
+}
+
+#text:hover {
+    text-decoration: underline;
 }
