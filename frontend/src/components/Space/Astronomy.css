@@ -1,19 +1,19 @@
 h2 {
-    color: white
+    color: white;
+    padding-bottom: 20px;
 }
 
 .astronomy {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.75);
     height: 400px;
     width: 88%;
     margin: auto;
     border-radius: 30px;
     padding: 25px;
+    overflow: auto;
 }
 
-Col {
-    height: 200px;
-}
+
 
 .explanation {
     text-align: left;
@@ -23,5 +23,5 @@ Col {
     /* padding-top: 20px; */
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 3%;
 }
