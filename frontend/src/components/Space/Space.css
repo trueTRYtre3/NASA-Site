@@ -1,0 +1,5 @@
+.main {
+    min-height: 100vh;
+    background-image: url('../../images/space.jpg');
+    background-size: cover;
+}

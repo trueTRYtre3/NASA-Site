@@ -21,8 +21,9 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Navigation />
-      <Space />
+      <Space>
+        <Navigation />
+      </Space>
     </div>
   );
 }
