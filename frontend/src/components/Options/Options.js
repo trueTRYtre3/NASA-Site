@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import './Options.css'
 
-const list = [
-    'Asteroids',
-    'Pic of the Day',
-    'euphoria'
-]
-
-
-const Options = () => {
+const Options = ({ categories }) => {
 
     const [show, changeShow] = useState(true)
     const style = { display: show ? '' : 'none' }
     const direction = show ? 'up' : 'down'
 
+    // const categories = [
+    //     'Pic of Day',
+    //     'Asteroids'
+    // ]
+
     return (
         <>
             <div className='optionBox' style={style}>
-                {list.map(li => (
-                    <p>{li}</p>
+                {categories.map(cat => (
+                    <p>{cat}</p>
                 ))}
             </div>
             <div className='arrowbox' onClick={() => changeShow(!show)}>

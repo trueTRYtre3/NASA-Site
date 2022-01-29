@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import Options from './components/Options/Options';
+import Space from './components/Space/Space';
 import nasaService from './services/nasaService'
-import logo from './images/earth.jpg'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,12 +22,7 @@ const App = () => {
   return (
     <div className='App'>
       <Navigation />
-      <Options />
-      {/* <img 
-        src={logo}
-        height='100'
-        alt="space"
-      /> */}
+      <Space />
     </div>
   );
 }
