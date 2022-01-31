@@ -16,7 +16,7 @@ const Options = ({ categories }) => {
         <>
             <div className='optionBox' style={style}>
                 {categories.map(cat => (
-                    <p>{cat}</p>
+                    <p key={cat}>{cat}</p>
                 ))}
             </div>
             <div className='arrowbox' onClick={() => changeShow(!show)}>

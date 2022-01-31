@@ -4,7 +4,7 @@ const key = process.env.REACT_APP_KEY
 
 const getPicture = async () => {
     const response = await axios.get(`${baseURL}api_key=${key}`)
-    return response
+    return response.data
 }
 
 
