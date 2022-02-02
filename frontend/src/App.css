@@ -10,6 +10,5 @@
 }
 
 .App.mars {
-  background-image: url('./images/mars.jpg') ;
-  /* background-size: auto; */
+  background-image: url('./images/mars.jpg') ; 
 }
