@@ -1,11 +1,17 @@
 import axios from 'axios'
-const baseURL = 'https://api.nasa.gov/planetary/apod?'
+const baseURL = 'https://api.nasa.gov/'
 const key = process.env.REACT_APP_KEY
 
 const getPicture = async () => {
-    const response = await axios.get(`${baseURL}api_key=${key}`)
+    const response = await axios.get(`${baseURL}planetary/apod?api_key=${key}`)
+    return response.data
+}
+
+const getAsteroid = async () => {
+    const response = await 
+            axios.get(`${baseURL}neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=${key}`)
     return response.data
 }
 
 
-export default { getPicture }
+export default { getPicture, getAsteroid }
