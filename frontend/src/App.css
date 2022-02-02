@@ -1,4 +1,14 @@
 .App {
   text-align: center;
-  min-height: 100vh;
+  background-image: url('./images/space.jpg');
+  background-size: cover;
+  padding-bottom: 20px;
+}
+
+.App.Earth {
+  background-image: url('./images/earth.jpg');
+}
+
+.App.Mars {
+  background-image: url('./images//mars.jpg');
 }

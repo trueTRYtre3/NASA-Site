@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import Space from './components/Space/Space';
-import nasaService from './services/nasaService'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
-  const [image, changeImage] = useState('')
-
-  useEffect(() => {
-    async function getPic() {
-      console.log(process.env.APP_KEY )
-      const response = await nasaService.getPicture()
-      console.log(response.data)
-    }
-
-    getPic();
-  }, [])
+  const path = useLocation().pathname
+  const name = path.split('/')
+  console.log(name[1])
 
   return (
-    <div className='App'>
-      <Space>
-        <Navigation />
-      </Space>
+    <div className={`App ${name[1]}`}>
+      <Navigation />
+      <Routes>
+        <Route path='/' exact element={<Space />}/>
+        <Route path='/earth' />
+        <Route path='/mars' />
+      </Routes>
     </div>
   );
 }
