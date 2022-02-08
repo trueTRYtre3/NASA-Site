@@ -4,7 +4,7 @@ import nasaService from '../../services/nasaService'
 import './Astronomy.css'
 import { Container, Row, Col } from 'react-bootstrap';
 
-const Astronomy = () => {
+const Astronomy = ({ image }) => {
     const [data, changeData] = useState({})
 
     // useEffect(() => {
@@ -16,6 +16,7 @@ const Astronomy = () => {
     //     getPic();
     // }, [])
 
+    console.log('astronomy', image)
     return (
         <>
             <h2>Astronomy Pic of the Day</h2>
@@ -47,12 +48,12 @@ const Astronomy = () => {
                         </Col>
                         <Col className='visual'>
                             {/* <Visual media={data}/>     */}
-                            <img 
+                            {/* <img 
                                 src="https://apod.nasa.gov/apod/image/2201/CarinaNorth_Colombari_3000.jpg"
                                 height='300'
                                 width='500'
                                 alt="Space"
-                            />
+                            /> */}
                         </Col>
                     </Row>
                 </Container>
