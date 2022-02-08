@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Options from '../Options/Options';
+import nasaService from '../../services/nasaService';
 import './Space.css';
 import Astronomy from './Astronomy';
 import Asteroid from './Asteroid';
 
 const Space = ({ children }) => {
     const [cat, changeCat] = useState('A')
+    const [image, changeImage] = useState({})
+    const [asteroid, changeAsteroid] = useState({})
 
     const categories = [
         {
@@ -17,6 +20,16 @@ const Space = ({ children }) => {
             index: 'B'
         }
     ]
+
+    useEffect(() => {
+        async function grabInfo() {
+            const image = await nasaService.getPicture() 
+            const stroid = await nasaService.getAsteroid()
+
+            changeImage(image)
+            changeAsteroid(stroid)
+        }
+    }, [])
 
     return (
         <div className='main'>
