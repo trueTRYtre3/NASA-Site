@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Form, Button, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
+import './Asteroid.css';
 
 const Asteroid = ({ stroid }) => {
     const [info, changeInfo] = useState({})
@@ -20,13 +21,23 @@ const Asteroid = ({ stroid }) => {
             <form onSubmit={submitForm}>
                 <label>
                     Start Date: 
-                    <input type='date' value={start} onChange={({ target }) => changeStart(target.value)} />
+                    <input 
+                        className='input' 
+                        type='date' 
+                        value={start} 
+                        onChange={({ target }) => changeStart(target.value)} 
+                    />
                 </label>
                 <label>
                     End Date:
-                    <input type='date' value={end} onChange={({ target }) => changeEnd(target.value)} />
+                    <input 
+                        className='input' 
+                        type='date' 
+                        value={end} 
+                        onChange={({ target }) => changeEnd(target.value)} 
+                    />
                 </label>
-                <button>Submit</button>
+                <button className='button'>Submit</button>
             </form>
         </div>
     )
