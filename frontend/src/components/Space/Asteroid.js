@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Table } from 'react-bootstrap';
 
 const Asteroid = ({ stroid }) => {
     const [info, changeInfo] = useState({})
@@ -8,37 +8,27 @@ const Asteroid = ({ stroid }) => {
 
     const submitForm = async e => {
         e.preventDefault()
-        console.log(typeof start)
+        console.log('start', start)
+        console.log('end', end)
+        changeStart('')
+        changeEnd('')
     }
 
     // console.log('stroid', stroid)
     return (
-        <>
-            <Form onSubmit={submitForm}>
-                <Form.Group>
-                    <Form.Label>Start Date</Form.Label>
-                    <Form.Control type="date" onChange={({ target }) => changeStart(target.value)} />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>End Date</Form.Label>
-                    <Form.Control type="date" onChange={({ target }) => changeEnd(target.value)} />
-                </Form.Group>
-                <Button type='submit'>
-                    Submit
-                </Button>
-            </Form>
-            {/* <form onSubmit={submitForm}>
+        <div>
+            <form onSubmit={submitForm}>
                 <label>
-                    Start Date:
-                    <input type='date'  value={start} onChange={changeStart} />
+                    Start Date: 
+                    <input type='date' value={start} onChange={({ target }) => changeStart(target.value)} />
                 </label>
                 <label>
                     End Date:
-                    <input type='date' value={end} onChange={changeEnd} />
+                    <input type='date' value={end} onChange={({ target }) => changeEnd(target.value)} />
                 </label>
-                <input type='submit' value='Submit' />
-            </form> */}
-        </>
+                <button>Submit</button>
+            </form>
+        </div>
     )
 }
 
