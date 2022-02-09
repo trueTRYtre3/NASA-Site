@@ -21,16 +21,16 @@ const Space = ({ children }) => {
         }
     ]
 
-    useEffect(() => {
-        async function grabInfo() {
-            const image = await nasaService.getPicture() 
-            const stroid = await nasaService.getAsteroid()
+    // useEffect(() => {
+    //     async function grabInfo() {
+    //         const image = await nasaService.getPicture() 
+    //         const stroid = await nasaService.getAsteroid()
 
-            changeImage(image)
-            changeAsteroid(stroid)
-        }
-        grabInfo()
-    }, [])
+    //         changeImage(image)
+    //         changeAsteroid(stroid)
+    //     }
+    //     grabInfo()
+    // }, [])
 
     return (
         <div className='main'>
