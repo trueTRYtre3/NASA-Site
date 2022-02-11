@@ -21,3 +21,16 @@ label {
 .button {
     border-radius: 4px;
 }
+
+
+thead {
+    position: sticky;
+    top: 0;
+}
+
+
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}

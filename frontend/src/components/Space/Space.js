@@ -34,7 +34,6 @@ const Space = ({ children }) => {
 
     return (
         <div className='main'>
-            {/* {children} */}
             <Options categories={categories} changeView={changeCat} />
             {cat === 'A' && <Astronomy image={image} />}
             {cat === 'B' && <Asteroid stroid={asteroid} />}
