@@ -3,9 +3,25 @@ import { Table } from 'react-bootstrap';
 import './Asteroid.css';
 
 const Asteroid = ({ stroid }) => {
-    const [info, changeInfo] = useState({})
+    const [info, changeInfo] = useState([])
     const [start, changeStart] = useState('')
     const [end, changeEnd] = useState('')
+
+    useEffect(() => {
+        for (const element in stroid) {
+            stroid[element].forEach(el => {
+                changeInfo((info) => [...info, {
+                    'key': el.neo_reference_id,
+                    'date': el.close_approach_data[0].close_approach_date_full,
+                    'miss': el.close_approach_data[0].miss_distance.kilometers,
+                    'velocity': el.close_approach_data[0].relative_velocity.kilometers_per_hour,
+                    'minimum': el.estimated_diameter.kilometers.estimated_diameter_min,
+                    'maximum': el.estimated_diameter.kilometers.estimated_diameter_max,
+                    'hazardous': el.is_potentially_hazardous_asteroid
+                }])
+            })
+        }
+    }, [stroid])
 
     const submitForm = async e => {
         e.preventDefault()
@@ -14,12 +30,7 @@ const Asteroid = ({ stroid }) => {
         changeStart('')
         changeEnd('')
     }
-
-    console.log('stroid', stroid)
-    // for (const key in stroid) {
-    //     console.log(stroid[key])
-    // }
-    console.log(Object.values(stroid))
+    
     return (
         <>
             <h2>Near Earth Asteroids</h2>
@@ -44,7 +55,8 @@ const Asteroid = ({ stroid }) => {
                 </label>
                 <button className='button'>Submit</button>
             </form>
-            {/* <Table>
+            {info.length > 0 && 
+            <Table>
                 <thead>
                     <tr>
                         <th>Date</th>
@@ -56,18 +68,18 @@ const Asteroid = ({ stroid }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.values(stroid).map(el => (
-                        <tr key={el.neo_reference_id}>
-                            <td>{el.close_approach_data[0].close_approach_date_full}</td>
-                            <td>{el.close_approach_data[0].miss_distance.kilometers} km</td>
-                            <td>{el.close_approach_data[0].relative_velocity.kilometers_per_hour} km/hr</td>
-                            <td>{el.estimated_diameter.kilometers.estimated_diameter_min} km</td>
-                            <td>{el.estimated_diameter.kilometers.estimated_diameter_max} km</td>
-                            <td>{el.is_potentially_hazardous_asteroid}</td>
+                    {info.map(el => (
+                        <tr key={el.key}>
+                            <td>{el.date}</td>
+                            <td>{el.miss} km</td>
+                            <td>{el.velocity} km/hr</td>
+                            <td>{el.minimum} km</td>
+                            <td>{el.maximum} km</td>
+                            <td>{el.hazardous}</td>
                         </tr>
                     ))}
                 </tbody>
-            </Table> */}
+            </Table>}
         </>
     )
 }
