@@ -24,7 +24,7 @@ const Space = ({ children }) => {
     useEffect(() => {
         async function grabInfo() {
             const image = await nasaService.getPicture() 
-            const stroid = await nasaService.getAsteroid()
+            const stroid = await nasaService.defaultAsteroid()
 
             changeImage(image)
             changeAsteroid(stroid.near_earth_objects)

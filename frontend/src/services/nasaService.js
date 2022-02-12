@@ -7,11 +7,17 @@ const getPicture = async () => {
     return response.data
 }
 
-const getAsteroid = async () => {
+const defaultAsteroid = async () => {
     const response = await 
             axios.get(`${baseURL}neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=${key}`)
     return response.data
 }
 
+const getAsteroid = async (start, end) => {
+    const response = await 
+            axios.get(`${baseURL}neo/rest/v1/feed?start_date=${start}&end_date=${end}&api_key=${key}`)
+    return response.data
+}
 
-export default { getPicture, getAsteroid }
+
+export default { getPicture, defaultAsteroid, getAsteroid }
