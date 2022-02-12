@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Alert } from 'react-bootstrap';
 import nasaService from '../../services/nasaService';
 import './Asteroid.css';
 
@@ -7,6 +7,7 @@ const Asteroid = ({ stroid }) => {
     const [info, changeInfo] = useState([])
     const [start, changeStart] = useState('')
     const [end, changeEnd] = useState('')
+    const [alert, changeAlert] = useState(false)
 
     const pushIntoState = (data) => {
         changeInfo([])
@@ -34,16 +35,19 @@ const Asteroid = ({ stroid }) => {
         try {
             const data = await nasaService.getAsteroid(start, end)
             pushIntoState(data.near_earth_objects)
+            changeAlert(false)
             changeStart('')
             changeEnd('')
         } catch (exception) {
             console.log(exception)
+            changeAlert(true)
         }
     }
 
     return (
         <>
             <h2>Near Earth Asteroids</h2>
+            {alert && <Alert variant='danger'>Request Error</Alert>}
             <form onSubmit={submitForm}>
                 <label>
                     Start Date: 
