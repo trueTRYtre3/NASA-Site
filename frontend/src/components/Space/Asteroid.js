@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
+import nasaService from '../../services/nasaService';
 import './Asteroid.css';
 
 const Asteroid = ({ stroid }) => {
@@ -7,9 +8,10 @@ const Asteroid = ({ stroid }) => {
     const [start, changeStart] = useState('')
     const [end, changeEnd] = useState('')
 
-    useEffect(() => {
-        for (const element in stroid) {
-            stroid[element].forEach(el => {
+    const pushIntoState = (data) => {
+        changeInfo([])
+        for (const element in data) {
+            data[element].forEach(el => {
                 changeInfo((info) => [...info, {
                     'key': el.neo_reference_id,
                     'date': el.close_approach_data[0].close_approach_date_full,
@@ -21,14 +23,22 @@ const Asteroid = ({ stroid }) => {
                 }])
             })
         }
+    }
+
+    useEffect(() => {
+        pushIntoState(stroid)
     }, [stroid])
 
     const submitForm = async e => {
         e.preventDefault()
-        console.log('start', start)
-        console.log('end', end)
-        changeStart('')
-        changeEnd('')
+        try {
+            const data = await nasaService.getAsteroid(start, end)
+            pushIntoState(data.near_earth_objects)
+            changeStart('')
+            changeEnd('')
+        } catch (exception) {
+            console.log(exception)
+        }
     }
 
     return (
