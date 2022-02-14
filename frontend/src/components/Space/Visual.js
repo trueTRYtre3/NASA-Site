@@ -15,8 +15,8 @@ const Visual = ({ media }) => {
                     height="300" 
                     src={media.url} 
                     title={media.title}
-                    frameborder="0"  
-                    allowfullscreen
+                    frameBorder="0"  
+                    allowFullScreen
                 />  
             }
         </>
