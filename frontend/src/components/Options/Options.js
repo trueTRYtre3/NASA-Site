@@ -12,7 +12,7 @@ const Options = ({ categories, changeView }) => {
         <>
             <div className='optionBox' style={style}>
                 {categories.map(cat => (
-                    <p key={cat.index} onClick={() => changeView(cat.index)}>{cat.name}</p>
+                    <p className='option' key={cat.index} onClick={() => changeView(cat.index)}>{cat.name}</p>
                 ))}
             </div>
             <div className='arrowbox' onClick={() => changeShow(!show)}>

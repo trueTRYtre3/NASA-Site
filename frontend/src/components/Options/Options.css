@@ -7,6 +7,10 @@
     justify-content: space-evenly;
 }
 
+.option {
+    cursor: pointer;
+}
+
 .arrowbox {
     border-right: 1px solid rgba(255, 255, 255, .4);
     border-left: 1px solid rgba(255, 255, 255, .4);
