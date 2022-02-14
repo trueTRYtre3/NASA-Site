@@ -47,7 +47,7 @@ const Asteroid = ({ stroid }) => {
     return (
         <>
             <h2>Near Earth Asteroids</h2>
-            {alert && <Alert variant='danger'>Request Error</Alert>}
+            {alert && <Alert className='alert' variant='danger'>Request Error</Alert>}
             <form onSubmit={submitForm}>
                 <label>
                     Start Date: 
