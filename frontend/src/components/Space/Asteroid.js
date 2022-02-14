@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Alert } from 'react-bootstrap';
+import { Table, Alert, Card } from 'react-bootstrap';
 import nasaService from '../../services/nasaService';
 import './Asteroid.css';
 
@@ -27,7 +27,118 @@ const Asteroid = ({ stroid }) => {
     }
 
     useEffect(() => {
-        pushIntoState(stroid)
+        // pushIntoState(stroid)
+        let tempState = [
+            {
+                date: "2015-Sep-08 20:28",
+                hazardous: true,
+                key: "2465633",
+                maximum: 0.5,
+                minimum: 0.23,
+                miss: 45290438.2,
+                velocity: 65260.64
+            },
+            {
+                date: "2015-Sep-08 14:31",
+                hazardous: false,
+                key: "3426410",
+                maximum: 0.32,
+                minimum: 0.14,
+                miss: 38764558.55,
+                velocity: 71099.33
+            },
+            {
+                date: "2015-Sep-08 12:07",
+                hazardous: false,
+                key: "3553060",
+                maximum: 0.03,
+                minimum: 0.01,
+                miss: 73563782.39,
+                velocity: 68950.93,     
+            },
+            {
+                date: "2015-Sep-08 20:28",
+                hazardous: true,
+                key: "2465633",
+                maximum: 0.5,
+                minimum: 0.23,
+                miss: 45290438.2,
+                velocity: 65260.64
+            },
+            {
+                date: "2015-Sep-08 14:31",
+                hazardous: false,
+                key: "3426410",
+                maximum: 0.32,
+                minimum: 0.14,
+                miss: 38764558.55,
+                velocity: 71099.33
+            },
+            {
+                date: "2015-Sep-08 12:07",
+                hazardous: false,
+                key: "3553060",
+                maximum: 0.03,
+                minimum: 0.01,
+                miss: 73563782.39,
+                velocity: 68950.93,     
+            },
+            {
+                date: "2015-Sep-08 20:28",
+                hazardous: true,
+                key: "2465633",
+                maximum: 0.5,
+                minimum: 0.23,
+                miss: 45290438.2,
+                velocity: 65260.64
+            },
+            {
+                date: "2015-Sep-08 14:31",
+                hazardous: false,
+                key: "3426410",
+                maximum: 0.32,
+                minimum: 0.14,
+                miss: 38764558.55,
+                velocity: 71099.33
+            },
+            {
+                date: "2015-Sep-08 12:07",
+                hazardous: false,
+                key: "3553060",
+                maximum: 0.03,
+                minimum: 0.01,
+                miss: 73563782.39,
+                velocity: 68950.93,     
+            },
+            {
+                date: "2015-Sep-08 20:28",
+                hazardous: true,
+                key: "2465633",
+                maximum: 0.5,
+                minimum: 0.23,
+                miss: 45290438.2,
+                velocity: 65260.64
+            },
+            {
+                date: "2015-Sep-08 14:31",
+                hazardous: false,
+                key: "3426410",
+                maximum: 0.32,
+                minimum: 0.14,
+                miss: 38764558.55,
+                velocity: 71099.33
+            },
+            {
+                date: "2015-Sep-08 12:07",
+                hazardous: false,
+                key: "3553060",
+                maximum: 0.03,
+                minimum: 0.01,
+                miss: 73563782.39,
+                velocity: 68950.93,     
+            },
+        ]
+        changeInfo(tempState)
     }, [stroid])
 
     const submitForm = async e => {
@@ -43,6 +154,8 @@ const Asteroid = ({ stroid }) => {
             changeAlert(true)
         }
     }
+
+
 
     return (
         <>
@@ -71,30 +184,43 @@ const Asteroid = ({ stroid }) => {
             </form>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', paddingBottom: '30px' }}>
                 {info.length > 0 && 
-                <Table striped bordered hover variant="dark" >
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Miss Distance</th>
-                            <th>Velocity</th>
-                            <th>Min. Diameter</th>
-                            <th>Max Diameter</th>
-                            <th>Hazardous</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {info.map(el => (
-                            <tr key={el.key}>
-                                <td>{el.date}</td>
-                                <td>{el.miss} km</td>
-                                <td>{el.velocity} km/hr</td>
-                                <td>{el.minimum} km</td>
-                                <td>{el.maximum} km</td>
-                                <td>{el.hazardous === true ? 'Yes' : 'No'}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </Table>}
+                <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto'}}>
+                    {info.map(el => (
+                        <div className='cards'>
+                            <p><strong>{el.date}</strong></p>
+                            <p><strong>Miss Distance</strong> <br />{el.miss} km</p>
+                            <p>{el.velocity} km/hr</p>
+                            <p>{el.minimum} km</p>
+                            <p>{el.maximum} km</p>
+                            <p>{el.hazardous === true ? 'Yes' : 'No'}</p>
+                        </div>
+                    ))}
+                </div>
+                // <Table striped bordered hover variant="dark" responsive>
+                //     <thead>
+                //         <tr>
+                //             <th>Date</th>
+                //             <th>Miss Distance</th>
+                //             <th>Velocity</th>
+                //             <th>Min. Diameter</th>
+                //             <th>Max Diameter</th>
+                //             <th>Hazardous</th>
+                //         </tr>
+                //     </thead>
+                //     <tbody>
+                //         {info.map(el => (
+                //             <tr key={el.key}>
+                //                 <td>{el.date}</td>
+                //                 <td>{el.miss} km</td>
+                //                 <td>{el.velocity} km/hr</td>
+                //                 <td>{el.minimum} km</td>
+                //                 <td>{el.maximum} km</td>
+                //                 <td>{el.hazardous === true ? 'Yes' : 'No'}</td>
+                //             </tr>
+                //         ))}
+                //     </tbody>
+                // </Table>
+                }
             </div>
         </>
     )
