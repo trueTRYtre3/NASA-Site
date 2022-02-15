@@ -27,118 +27,7 @@ const Asteroid = ({ stroid }) => {
     }
 
     useEffect(() => {
-        // pushIntoState(stroid)
-        let tempState = [
-            {
-                date: "2015-Sep-08 20:28",
-                hazardous: true,
-                key: "2465633",
-                maximum: 0.5,
-                minimum: 0.23,
-                miss: 45290438.2,
-                velocity: 65260.64
-            },
-            {
-                date: "2015-Sep-08 14:31",
-                hazardous: false,
-                key: "3426410",
-                maximum: 0.32,
-                minimum: 0.14,
-                miss: 38764558.55,
-                velocity: 71099.33
-            },
-            {
-                date: "2015-Sep-08 12:07",
-                hazardous: false,
-                key: "3553060",
-                maximum: 0.03,
-                minimum: 0.01,
-                miss: 73563782.39,
-                velocity: 68950.93,     
-            },
-            {
-                date: "2015-Sep-08 20:28",
-                hazardous: true,
-                key: "2465633",
-                maximum: 0.5,
-                minimum: 0.23,
-                miss: 45290438.2,
-                velocity: 65260.64
-            },
-            {
-                date: "2015-Sep-08 14:31",
-                hazardous: false,
-                key: "3426410",
-                maximum: 0.32,
-                minimum: 0.14,
-                miss: 38764558.55,
-                velocity: 71099.33
-            },
-            {
-                date: "2015-Sep-08 12:07",
-                hazardous: false,
-                key: "3553060",
-                maximum: 0.03,
-                minimum: 0.01,
-                miss: 73563782.39,
-                velocity: 68950.93,     
-            },
-            {
-                date: "2015-Sep-08 20:28",
-                hazardous: true,
-                key: "2465633",
-                maximum: 0.5,
-                minimum: 0.23,
-                miss: 45290438.2,
-                velocity: 65260.64
-            },
-            {
-                date: "2015-Sep-08 14:31",
-                hazardous: false,
-                key: "3426410",
-                maximum: 0.32,
-                minimum: 0.14,
-                miss: 38764558.55,
-                velocity: 71099.33
-            },
-            {
-                date: "2015-Sep-08 12:07",
-                hazardous: false,
-                key: "3553060",
-                maximum: 0.03,
-                minimum: 0.01,
-                miss: 73563782.39,
-                velocity: 68950.93,     
-            },
-            {
-                date: "2015-Sep-08 20:28",
-                hazardous: true,
-                key: "2465633",
-                maximum: 0.5,
-                minimum: 0.23,
-                miss: 45290438.2,
-                velocity: 65260.64
-            },
-            {
-                date: "2015-Sep-08 14:31",
-                hazardous: false,
-                key: "3426410",
-                maximum: 0.32,
-                minimum: 0.14,
-                miss: 38764558.55,
-                velocity: 71099.33
-            },
-            {
-                date: "2015-Sep-08 12:07",
-                hazardous: false,
-                key: "3553060",
-                maximum: 0.03,
-                minimum: 0.01,
-                miss: 73563782.39,
-                velocity: 68950.93,     
-            },
-        ]
-        changeInfo(tempState)
+        pushIntoState(stroid)
     }, [stroid])
 
     const submitForm = async e => {
@@ -156,7 +45,7 @@ const Asteroid = ({ stroid }) => {
     }
 
     return (
-        <div className='layout'>
+        <>
             <h2>Near Earth Asteroids</h2>
             {alert && <Alert className='alert' variant='danger'>Request Error</Alert>}
             <Form onSubmit={submitForm}>
@@ -215,7 +104,7 @@ const Asteroid = ({ stroid }) => {
                 </div>
                 }
             </div>
-        </div>
+        </>
     )
 }
 
