@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Alert, Card } from 'react-bootstrap';
+import { Alert, Form, Button, FloatingLabel } from 'react-bootstrap';
 import nasaService from '../../services/nasaService';
 import './Asteroid.css';
 
@@ -155,33 +155,31 @@ const Asteroid = ({ stroid }) => {
         }
     }
 
-
-
     return (
         <div className='layout'>
             <h2>Near Earth Asteroids</h2>
             {alert && <Alert className='alert' variant='danger'>Request Error</Alert>}
-            <form onSubmit={submitForm}>
-                <label>
-                    Start Date: 
-                    <input 
-                        className='input' 
-                        type='date' 
-                        value={start} 
-                        onChange={({ target }) => changeStart(target.value)} 
-                    />
-                </label>
-                <label>
-                    End Date:
-                    <input 
-                        className='input' 
-                        type='date' 
-                        value={end} 
-                        onChange={({ target }) => changeEnd(target.value)} 
-                    />
-                </label>
-                <button className='button'>Submit</button>
-            </form>
+            <Form onSubmit={submitForm}>
+                <Form.Group className='input'>
+                    <FloatingLabel label="Start Date">
+                        <Form.Control 
+                            type='date' 
+                            value={start} 
+                            onChange={({ target }) => changeStart(target.value)} 
+                        />
+                    </FloatingLabel>
+                </Form.Group>
+                <Form.Group className='input'>
+                    <FloatingLabel label="End Date">
+                        <Form.Control 
+                            type='date' 
+                            value={end} 
+                            onChange={({ target }) => changeEnd(target.value)} 
+                        />
+                    </FloatingLabel>
+                </Form.Group>
+                <Button className='button' variant="success" type='submit'>Submit</Button>
+            </Form>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', paddingBottom: '30px' }}>
                 {info.length > 0 && 
                 <div className='gridlayout' style={{ display: 'grid' }}>
