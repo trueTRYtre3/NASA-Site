@@ -1,0 +1,13 @@
+.mars-page {
+    display: flex;
+    justify-content: center;
+}
+
+.pictures {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+img {
+    margin: 10px;
+}

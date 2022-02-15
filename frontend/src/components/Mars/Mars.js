@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import Options from '../Options/Options';
+import React, { useState, useEffect } from 'react';
+import Rover from './Rover';
+import nasaService from '../../services/nasaService';
+import data from './data';
 
 const Mars = () => {
-    const [cat, changeCat] = useState('A')
+    const [pics, getPics] = useState([])
+    useEffect(() => {
+        // async function marsData() {
+        //     const data = await nasaService.getRover()
+        //     console.log(data.photos)
+        // }
 
-    const categories = [
-        {
-            name: 'Pic of Day',
-            index: 'A'
-        },
-        {
-            name: 'Asteroids',
-            index: 'B'
-        }
-    ]
+        // marsData()
+        getPics(data)
+    }, [])
 
     return (
         <>
-            <Options categories={categories} changeView={changeCat} />
-            <h1 style={{ color: 'green' }}>this is mars</h1>
+            <h2>Mars Rover Pictures</h2>
+            <Rover pictures={pics} />
         </>
     )
 }
