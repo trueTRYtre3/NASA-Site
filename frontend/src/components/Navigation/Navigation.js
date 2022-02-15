@@ -25,7 +25,6 @@ const Navigation = () => {
                         <Nav  className="me-auto"></Nav>
                         <Nav id='categories'>
                             <Nav.Link as={Link} to='/' id='text'>Space</Nav.Link>
-                            <Nav.Link as={Link} to='/earth' id='text'>Earth</Nav.Link>
                             <Nav.Link as={Link} to='/mars' id='text'>Mars</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
