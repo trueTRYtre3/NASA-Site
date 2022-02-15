@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => {
   const path = useLocation().pathname
   const name = path.split('/')
-  console.log(name[1])
 
   return (
     <div className={`App ${name[1]}`}>
