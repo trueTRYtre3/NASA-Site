@@ -158,7 +158,7 @@ const Asteroid = ({ stroid }) => {
 
 
     return (
-        <>
+        <div className='layout'>
             <h2>Near Earth Asteroids</h2>
             {alert && <Alert className='alert' variant='danger'>Request Error</Alert>}
             <form onSubmit={submitForm}>
@@ -184,45 +184,40 @@ const Asteroid = ({ stroid }) => {
             </form>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', paddingBottom: '30px' }}>
                 {info.length > 0 && 
-                <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto'}}>
+                <div className='gridlayout' style={{ display: 'grid' }}>
                     {info.map(el => (
-                        <div className='cards'>
-                            <p><strong>{el.date}</strong></p>
-                            <p><strong>Miss Distance</strong> <br />{el.miss} km</p>
-                            <p>{el.velocity} km/hr</p>
-                            <p>{el.minimum} km</p>
-                            <p>{el.maximum} km</p>
-                            <p>{el.hazardous === true ? 'Yes' : 'No'}</p>
+                        <div className='cards' key={el.key}>
+                            <p>
+                                <strong>{el.date}</strong>
+                            </p>
+                            <p>
+                                <strong>Miss Distance</strong> 
+                                <br />
+                                {el.miss} km
+                            </p>
+                            <p>
+                                <strong>Velocity</strong> 
+                                <br />
+                                {el.velocity} km/hr
+                            </p>
+                            <p style={{ marginBottom: 0 }}>
+                                <strong>Asteroid Diameter</strong>
+                            </p>
+                            <div className='diameter'>
+                                <p>Min. <br />{el.minimum} km</p>
+                                <p>Max. <br />{el.maximum} km</p>
+                            </div>
+                            <p>
+                                <strong>Potentially Hazardous</strong>
+                                <br />
+                                {el.hazardous === true ? 'Yes' : 'No'}
+                            </p>
                         </div>
                     ))}
                 </div>
-                // <Table striped bordered hover variant="dark" responsive>
-                //     <thead>
-                //         <tr>
-                //             <th>Date</th>
-                //             <th>Miss Distance</th>
-                //             <th>Velocity</th>
-                //             <th>Min. Diameter</th>
-                //             <th>Max Diameter</th>
-                //             <th>Hazardous</th>
-                //         </tr>
-                //     </thead>
-                //     <tbody>
-                //         {info.map(el => (
-                //             <tr key={el.key}>
-                //                 <td>{el.date}</td>
-                //                 <td>{el.miss} km</td>
-                //                 <td>{el.velocity} km/hr</td>
-                //                 <td>{el.minimum} km</td>
-                //                 <td>{el.maximum} km</td>
-                //                 <td>{el.hazardous === true ? 'Yes' : 'No'}</td>
-                //             </tr>
-                //         ))}
-                //     </tbody>
-                // </Table>
                 }
             </div>
-        </>
+        </div>
     )
 }
 
