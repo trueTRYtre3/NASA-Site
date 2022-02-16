@@ -6,13 +6,12 @@ import data from './data';
 const Mars = () => {
     const [pics, getPics] = useState([])
     useEffect(() => {
-        // async function marsData() {
-        //     const data = await nasaService.getRover()
-        //     console.log(data.photos)
-        // }
-
-        // marsData()
-        getPics(data)
+        async function marsData() {
+            const data = await nasaService.getRover()
+            getPics(data)
+        }
+        marsData()
+        // getPics(data)
     }, [])
 
     return (
