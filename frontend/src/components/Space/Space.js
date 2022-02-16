@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Options from '../Options/Options';
 import nasaService from '../../services/nasaService';
-import './Space.css';
 import Astronomy from './Astronomy';
 import Asteroid from './Asteroid';
 
