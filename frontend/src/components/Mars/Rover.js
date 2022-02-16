@@ -27,7 +27,12 @@ const Rover = ({ pictures }) => {
                     dataLength={limit}
                     next={changeDataLength}
                     hasMore={limit < photos.length}
-                    loader={ <Spinner animation="grow" variant="light" />}
+                    loader={ 
+                        <div>
+                            <br />
+                            <Spinner animation="grow" variant="light" className='spin' />
+                        </div>
+                    }
                     endMessage={<h1 style={{ color: 'white' }}>That's all folks</h1>}
                 >
                     {photos.slice(0, limit).map(pics => (
