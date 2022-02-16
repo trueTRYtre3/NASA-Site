@@ -18,22 +18,6 @@
         margin-left: auto;
         margin-right: auto;
     }
-    .gridlayout {
-        grid-template-columns: auto;
-        margin-bottom: 180px;
-    }
-    .cards {
-        background-color: rgba(27, 27, 27, 0.9);
-        color: white;
-        margin: 8px;
-        padding: 25px 75px;
-        border-radius: 25px;
-    }
-    .diameter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
 }
 
 @media screen and (min-width: 550px) {
@@ -61,22 +45,6 @@
     .button {
         border-radius: 4px;
     }
-    .gridlayout {
-        grid-template-columns: auto auto;
-        margin-bottom: 700px;
-    }
-    .cards {
-        background-color: rgba(27, 27, 27, 0.9);
-        color: white;
-        margin: 10px;
-        padding: 25px 75px;
-        border-radius: 25px;
-    }
-    .diameter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
 }
 
 @media screen and (min-width: 950px) {
@@ -103,24 +71,5 @@
     
     .button {
         border-radius: 4px;
-    }
-    
-    .gridlayout {
-        grid-template-columns: auto auto auto;
-        margin-bottom: 10px;
-    }
-    
-    .cards {
-        background-color: rgba(27, 27, 27, 0.9);
-        color: white;
-        margin: 10px;
-        padding: 20px 65px;
-        border-radius: 25px;
-    }
-    
-    .diameter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
     }
 }

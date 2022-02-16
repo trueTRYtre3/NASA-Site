@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import '../InfiniteScroll/Scroller.css';
+import '../Styles/Scroller.css';
 import './Rover.css';
 
 const Rover = ({ pictures }) => {
@@ -22,7 +22,6 @@ const Rover = ({ pictures }) => {
     return (
         <div className='grid-outer-container'>
             {photos && 
-            <div className='grid-inner'>
                 <InfiniteScroll
                     dataLength={limit}
                     next={changeDataLength}
@@ -35,11 +34,12 @@ const Rover = ({ pictures }) => {
                     }
                     endMessage={<h1 style={{ color: 'white' }}>That's all folks</h1>}
                 >
-                    {photos.slice(0, limit).map(pics => (
-                        <img key={pics.id} src={pics.img_src} loading='lazy' alt='failed load' width='300' height='300' />
-                    ))}
+                    <div className='grid-inner'>
+                        {photos.slice(0, limit).map(pics => (
+                            <img key={pics.id} src={pics.img_src} loading='lazy' alt='failed load' width='300' height='300' />
+                        ))}
+                    </div>
                 </InfiniteScroll>
-            </div>
             }
         </div>
     )

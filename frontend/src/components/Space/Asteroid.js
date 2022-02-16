@@ -83,7 +83,7 @@ const Asteroid = ({ stroid }) => {
                 </Form.Group>
                 <Button className='button' variant="success" type='submit'>Submit</Button>
             </Form>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', paddingBottom: '30px' }}>
+            <div className='grid-outer-container'>
                 {info.length > 0 && 
                     <InfiniteScroll
                         dataLength={limit}
@@ -97,10 +97,10 @@ const Asteroid = ({ stroid }) => {
                         }
                         endMessage={<h1 style={{ color: 'white' }}>That's all folks</h1>}
                     >
-                        <div className='gridlayout' style={{ display: 'grid' }}>
-                        {info.slice(0,limit).map(el => (
-                            <AsteroidCard element={el} key={el.key}/>
-                        ))}
+                        <div className='grid-inner'>
+                            {info.slice(0,limit).map(el => 
+                                <AsteroidCard element={el} key={el.key}/>
+                            )}
                         </div>
                     </InfiniteScroll>
                 }
