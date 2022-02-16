@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, Form, Button, FloatingLabel } from 'react-bootstrap';
 import nasaService from '../../services/nasaService';
+import AsteroidCard from './AsteroidCard';
 import './Asteroid.css';
 
 const Asteroid = ({ stroid }) => {
@@ -73,33 +74,34 @@ const Asteroid = ({ stroid }) => {
                 {info.length > 0 && 
                 <div className='gridlayout' style={{ display: 'grid' }}>
                     {info.map(el => (
-                        <div className='cards' key={el.key}>
-                            <p>
-                                <strong>{el.date}</strong>
-                            </p>
-                            <p>
-                                <strong>Miss Distance</strong> 
-                                <br />
-                                {el.miss} km
-                            </p>
-                            <p>
-                                <strong>Velocity</strong> 
-                                <br />
-                                {el.velocity} km/hr
-                            </p>
-                            <p style={{ marginBottom: 0 }}>
-                                <strong>Asteroid Diameter</strong>
-                            </p>
-                            <div className='diameter'>
-                                <p>Min. <br />{el.minimum} km</p>
-                                <p>Max. <br />{el.maximum} km</p>
-                            </div>
-                            <p>
-                                <strong>Potentially Hazardous</strong>
-                                <br />
-                                {el.hazardous === true ? 'Yes' : 'No'}
-                            </p>
-                        </div>
+                        <AsteroidCard element={el} />
+                        // <div className='cards' key={el.key}>
+                        //     <p>
+                        //         <strong>{el.date}</strong>
+                        //     </p>
+                        //     <p>
+                        //         <strong>Miss Distance</strong> 
+                        //         <br />
+                        //         {el.miss} km
+                        //     </p>
+                        //     <p>
+                        //         <strong>Velocity</strong> 
+                        //         <br />
+                        //         {el.velocity} km/hr
+                        //     </p>
+                        //     <p style={{ marginBottom: 0 }}>
+                        //         <strong>Asteroid Diameter</strong>
+                        //     </p>
+                        //     <div className='diameter'>
+                        //         <p>Min. <br />{el.minimum} km</p>
+                        //         <p>Max. <br />{el.maximum} km</p>
+                        //     </div>
+                        //     <p>
+                        //         <strong>Potentially Hazardous</strong>
+                        //         <br />
+                        //         {el.hazardous === true ? 'Yes' : 'No'}
+                        //     </p>
+                        // </div>
                     ))}
                 </div>
                 }

@@ -19,8 +19,8 @@ const Scroller = ({ limit, changeFn, len, mappedObj }) => {
                     }
                     endMessage={<h1 style={{ color: 'white' }}>That's all folks</h1>}
                 >
-                    {mappedObj.slice(0, limit).map(pics => (
-                        <img key={pics.id} src={pics.img_src} loading='lazy' alt='failed load' width='300' height='300' />
+                    {mappedObj.slice(0, limit).map(obj => (
+                        <img key={obj.id} src={obj.img_src} loading='lazy' alt='failed load' width='300' height='300' />
                     ))}
                 </InfiniteScroll>
             </div>
