@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, Form, Button, FloatingLabel } from 'react-bootstrap';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Spinner } from 'react-bootstrap';
 import nasaService from '../../services/nasaService';
 import AsteroidCard from './AsteroidCard';
 import './Asteroid.css';
+import '../Styles/Scroller.css'
 
 const Asteroid = ({ stroid }) => {
     const [info, changeInfo] = useState([])
     const [start, changeStart] = useState('')
     const [end, changeEnd] = useState('')
     const [alert, changeAlert] = useState(false)
+    const [limit, changeLimit] = useState(12)
+
+    const changeDataLength = () => {
+        const newLength = limit+12 < info.length ? limit+12 : info.length  
+        setTimeout(() => {
+            changeLimit(newLength)
+        }, 1000)
+    }
 
     const pushIntoState = (data) => {
         changeInfo([])
+        changeLimit(0)
         for (const element in data) {
             data[element].forEach(el => {
                 changeInfo((info) => [...info, {
@@ -25,11 +37,12 @@ const Asteroid = ({ stroid }) => {
                 }])
             })
         }
+        changeDataLength()
     }
 
     useEffect(() => {
         pushIntoState(stroid)
-    }, [stroid])
+    }, [])
 
     const submitForm = async e => {
         e.preventDefault()
@@ -72,11 +85,24 @@ const Asteroid = ({ stroid }) => {
             </Form>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', paddingBottom: '30px' }}>
                 {info.length > 0 && 
-                <div className='gridlayout' style={{ display: 'grid' }}>
-                    {info.map(el => (
-                        <AsteroidCard element={el} />
-                    ))}
-                </div>
+                    <InfiniteScroll
+                        dataLength={limit}
+                        next={changeDataLength}
+                        hasMore={limit < info.length}
+                        loader={ 
+                            <div>
+                                <br />
+                                <Spinner animation="grow" variant="light" className='spin' />
+                            </div>
+                        }
+                        endMessage={<h1 style={{ color: 'white' }}>That's all folks</h1>}
+                    >
+                        <div className='gridlayout' style={{ display: 'grid' }}>
+                        {info.slice(0,limit).map(el => (
+                            <AsteroidCard element={el} key={el.key}/>
+                        ))}
+                        </div>
+                    </InfiniteScroll>
                 }
             </div>
         </>
