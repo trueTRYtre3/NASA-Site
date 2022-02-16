@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Rover from './Rover';
 import nasaService from '../../services/nasaService';
-import data from './data';
 
 const Mars = () => {
     const [pics, getPics] = useState([])
@@ -11,7 +10,6 @@ const Mars = () => {
             getPics(data)
         }
         marsData()
-        // getPics(data)
     }, [])
 
     return (
