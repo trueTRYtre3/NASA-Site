@@ -20,9 +20,15 @@ const getAsteroid = async (start, end) => {
 }
 
 const getRover = async () => {
-    const response = await axios.get(`${baseURL}mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${key}`)
+    const response = await 
+            axios.get(`${baseURL}mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${key}`)
     return response.data
 }
 
+const getRoverDate = async date => {
+    const response = await 
+            axios.get(`${baseURL}mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&api_key=${key}`)
+    return response.data
+}
 
-export default { getPicture, defaultAsteroid, getAsteroid, getRover }
+export default { getPicture, defaultAsteroid, getAsteroid, getRover, getRoverDate }
