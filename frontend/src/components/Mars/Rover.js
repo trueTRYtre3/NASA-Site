@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Spinner } from 'react-bootstrap';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import Scroller from '../InfiniteScroll/Scroller';
+// import { Spinner } from 'react-bootstrap';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 import './Rover.css';
 
 const Rover = ({ pictures }) => {
@@ -20,28 +21,37 @@ const Rover = ({ pictures }) => {
     }
 
     return (
-        <div className='mars-page'>
+        <>
             {photos && 
-            <div className='pictures'>
-                <InfiniteScroll
-                    dataLength={limit}
-                    next={changeDataLength}
-                    hasMore={limit < photos.length}
-                    loader={ 
-                        <div>
-                            <br />
-                            <Spinner animation="grow" variant="light" className='spin' />
-                        </div>
-                    }
-                    endMessage={<h1 style={{ color: 'white' }}>That's all folks</h1>}
-                >
-                    {photos.slice(0, limit).map(pics => (
-                        <img key={pics.id} src={pics.img_src} loading='lazy' alt='failed load' width='300' height='300' />
-                    ))}
-                </InfiniteScroll>
-            </div>
-            }
-        </div>
+            <Scroller 
+                limit={limit} 
+                changeFn={changeDataLength}
+                len={photos.length}
+                mappedObj={photos}
+            />}
+        </>
+        // <div className='mars-page'>
+        //     {photos && 
+        //     <div className='pictures'>
+        //         <InfiniteScroll
+        //             dataLength={limit}
+        //             next={changeDataLength}
+        //             hasMore={limit < photos.length}
+        //             loader={ 
+        //                 <div>
+        //                     <br />
+        //                     <Spinner animation="grow" variant="light" className='spin' />
+        //                 </div>
+        //             }
+        //             endMessage={<h1 style={{ color: 'white' }}>That's all folks</h1>}
+        //         >
+        //             {photos.slice(0, limit).map(pics => (
+        //                 <img key={pics.id} src={pics.img_src} loading='lazy' alt='failed load' width='300' height='300' />
+        //             ))}
+        //         </InfiniteScroll>
+        //     </div>
+        //     }
+        // </div>
     )
 }
 
