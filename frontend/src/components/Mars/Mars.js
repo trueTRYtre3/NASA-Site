@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, FloatingLabel, Alert } from 'react-bootstrap';
 import Rover from './Rover';
 import nasaService from '../../services/nasaService';
+import '../Styles/Form.css'
 
 const Mars = () => {
     const [pics, getPics] = useState([])

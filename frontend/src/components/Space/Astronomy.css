@@ -1,3 +1,9 @@
+.astronomy-page {
+    min-height: 100vh;
+    background-image: url('../../images/earth.jpg');
+    background-size: cover;
+}
+
 h2 {
     color: white;
     padding-bottom: 20px;

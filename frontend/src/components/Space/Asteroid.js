@@ -4,8 +4,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { Spinner } from 'react-bootstrap';
 import nasaService from '../../services/nasaService';
 import AsteroidCard from './AsteroidCard';
-import './Asteroid.css';
-import '../Styles/Scroller.css'
+import '../Styles/Form.css';
+import '../Styles/Scroller.css';
 
 const Asteroid = ({ stroid }) => {
     const [info, changeInfo] = useState([])
@@ -95,7 +95,7 @@ const Asteroid = ({ stroid }) => {
                                 <Spinner animation="grow" variant="light" className='spin' />
                             </div>
                         }
-                        endMessage={<h1 style={{ color: 'white' }}>That's all folks</h1>}
+                        endMessage={<h1 style={{ color: 'white',  marginTop: '30px' }}>That's all folks</h1>}
                     >
                         <div className='grid-inner'>
                             {info.slice(0,limit).map(el => 

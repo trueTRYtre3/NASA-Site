@@ -11,7 +11,7 @@ const Astronomy = ({ image }) => {
     }, [image])
 
     return (
-        <>
+        <div className='astronomy-page'>
             <h2>Astronomy Pic of the Day</h2>
             <div className='astronomy'>
                 <Container>
@@ -32,7 +32,7 @@ const Astronomy = ({ image }) => {
                     </Row>
                 </Container>
             </div>
-        </>
+        </div>
     )
 }
 
