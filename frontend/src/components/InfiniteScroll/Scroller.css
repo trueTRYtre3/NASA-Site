@@ -1,140 +1,34 @@
 .grid-outer-container {
     display: flex;
     justify-content: center;
+    margin-top: 25px;
+    padding-bottom: 480px; 
 }
-
-.grid-inner {
-    display: grid;
-    grid-template-columns: auto auto auto;
-}
-
 .spin {
     margin-bottom: 20px;
 }
 
 @media screen and (max-width: 549px) {
-    .alert {
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10px;
-    }
-    Form {
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .input {
-        margin-bottom: 10px;
-    }
-    .button {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .gridlayout {
+    .grid-inner {
+        display: grid;
         grid-template-columns: auto;
-        margin-bottom: 180px;
+        /* margin-bottom: 180px; */
     }
-    .cards {
-        background-color: rgba(27, 27, 27, 0.9);
-        color: white;
-        margin: 8px;
-        padding: 25px 75px;
-        border-radius: 25px;
-    }
-    .diameter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+    
 }
 
 @media screen and (min-width: 550px) {
-    .alert {
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10px;
-    }
-    Form {
-        background-color: rgba(255, 255, 255, 0.70);
-        padding: 10px;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        justify-content: center;
-        border-radius: 40px;
-    }
-    
-    .input {
-        margin-right: 15px;
-    }
-    
-    .button {
-        border-radius: 4px;
-    }
-    .gridlayout {
+    .grid-inner {
+        display: grid;
         grid-template-columns: auto auto;
-        margin-bottom: 700px;
-    }
-    .cards {
-        background-color: rgba(27, 27, 27, 0.9);
-        color: white;
-        margin: 10px;
-        padding: 25px 75px;
-        border-radius: 25px;
-    }
-    .diameter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        /* margin-bottom: 700px; */
     }
 }
 
 @media screen and (min-width: 950px) {
-    .alert {
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    Form {
-        background-color: rgba(255, 255, 255, 0.50);
-        padding: 10px;
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        justify-content: center;
-        border-radius: 40px;
-    }
-    
-    .input {
-        margin-right: 15px;
-    }
-    
-    .button {
-        border-radius: 4px;
-    }
-    
-    .gridlayout {
+    .grid-inner {
+        display: grid;
         grid-template-columns: auto auto auto;
-        margin-bottom: 10px;
-    }
-    
-    .cards {
-        background-color: rgba(27, 27, 27, 0.9);
-        color: white;
-        margin: 10px;
-        padding: 20px 65px;
-        border-radius: 25px;
-    }
-    
-    .diameter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        /* margin-bottom: 10px; */
     }
 }
