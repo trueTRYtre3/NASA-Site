@@ -75,33 +75,6 @@ const Asteroid = ({ stroid }) => {
                 <div className='gridlayout' style={{ display: 'grid' }}>
                     {info.map(el => (
                         <AsteroidCard element={el} />
-                        // <div className='cards' key={el.key}>
-                        //     <p>
-                        //         <strong>{el.date}</strong>
-                        //     </p>
-                        //     <p>
-                        //         <strong>Miss Distance</strong> 
-                        //         <br />
-                        //         {el.miss} km
-                        //     </p>
-                        //     <p>
-                        //         <strong>Velocity</strong> 
-                        //         <br />
-                        //         {el.velocity} km/hr
-                        //     </p>
-                        //     <p style={{ marginBottom: 0 }}>
-                        //         <strong>Asteroid Diameter</strong>
-                        //     </p>
-                        //     <div className='diameter'>
-                        //         <p>Min. <br />{el.minimum} km</p>
-                        //         <p>Max. <br />{el.maximum} km</p>
-                        //     </div>
-                        //     <p>
-                        //         <strong>Potentially Hazardous</strong>
-                        //         <br />
-                        //         {el.hazardous === true ? 'Yes' : 'No'}
-                        //     </p>
-                        // </div>
                     ))}
                 </div>
                 }

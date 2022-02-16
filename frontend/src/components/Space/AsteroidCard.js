@@ -1,8 +1,9 @@
 import React from 'react';
+import './AsteroidCard.css';
 
 const AsteroidCard = ({ element }) => {
     return (
-        <div className='cards' key={element.key}>
+        <div className='cards'>
             <p>
                 <strong>{element.date}</strong>
             </p>
